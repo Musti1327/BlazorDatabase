@@ -1,0 +1,40 @@
+﻿@page "/"
+@using BlazorDB.Model
+
+<PageTitle>Data</PageTitle>
+
+<h3>Reigster your data</h3>
+
+<EditForm Model="@newData" OnValidSubmit="SubmitForm">
+
+    <label>Name</label>
+    <InputText @bind-Value="newData.Name"/>
+
+    <br />
+    <br />
+
+    <label>Phone Number</label>
+    <InputNumber @bind-Value="newData.PhoneNum" />
+
+    <br />
+    <br />
+
+    <label>Email</label>
+    <InputText @bind-Value="newData.Email"/>
+
+    <button type="submit">Submit</button>
+
+</EditForm>
+
+@inject Data.AppBbContext dbContext
+@code {
+    public DataDB newData = new DataDB();
+
+    private async Task SubmitForm()
+    {
+        dbContext.DataDB.Add(newData);
+        await dbContext.SaveChangesAsync();
+    }
+
+}
+
