@@ -9,8 +9,10 @@ namespace BlazorDB.Data
         public AppBbContext(IConfiguration configuration)
         {
             Configuration = configuration;
+            
         }
 
+       
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

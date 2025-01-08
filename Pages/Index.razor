@@ -10,17 +10,28 @@
     <label>Name</label>
     <InputText @bind-Value="newData.Name"/>
 
+    
     <br />
     <br />
 
     <label>Phone Number</label>
-    <InputNumber @bind-Value="newData.PhoneNum" />
+    <InputText @bind-Value="newData.PhoneNum" />
 
     <br />
     <br />
+
+
+    
 
     <label>Email</label>
     <InputText @bind-Value="newData.Email"/>
+
+    <br />
+    <br />
+
+    <label>Birthday</label>
+    <InputDate @bind-Value="newData.Birthday" />
+    
 
     <button type="submit">Submit</button>
 
@@ -34,6 +45,8 @@
     {
         dbContext.DataDB.Add(newData);
         await dbContext.SaveChangesAsync();
+        
+
     }
 
 }

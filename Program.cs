@@ -10,6 +10,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<AppBbContext>();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -40,6 +40,9 @@ namespace BlazorDB.Migrations
                     b.Property<int>("PhoneNum")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Birthday")
+                      .HasColumnType("date");
+
                     b.HasKey("Id");
 
                     b.ToTable("DataDB");

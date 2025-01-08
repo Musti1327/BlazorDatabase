@@ -1,0 +1,36 @@
+﻿@page
+@model BlazorDB.Pages.viewDataModel
+@{
+}
+<br />
+
+<h2>List of employees</h2>
+
+<table class="table">  
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th>BirthDay</th>
+        </tr>
+    </thead>
+<tbody>
+    @foreach (var Employees in Model.Employees)
+    {
+    <tr>
+        <td>@Employees.Id</td>
+        <td>@Employees.Name</td>
+        <td>@Employees.Email</td>
+        <td>@Employees.PhoneNum</td>
+        <td>@Employees.Birthday</td>
+
+            <td>
+                <a class="btn btn-primary btn-sm" href="/Pages/Edit?Id=@Employees.Id">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="/Pages/Delete?Id=@Employees.Id">Delete</a>
+            </td>
+    </tr>
+    }
+</tbody>
+</table>
