@@ -17,7 +17,7 @@ namespace BlazorDB.Pages
                 {
                     connection.Open();
 
-                    string sql = "SELECT * FROM DataDB";
+                    string saql = "SELECT * FROM DataDB";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -33,7 +33,7 @@ namespace BlazorDB.Pages
                                 employeesInfo.PhoneNum = reader.GetString(3);
                                 employeesInfo.Birthday = reader.GetDateTime(4);
                                 
-                                
+                               
                                 Employees.Add(employeesInfo);
                             }
                         }
@@ -43,7 +43,7 @@ namespace BlazorDB.Pages
             }
             catch(Exception ex) 
             {
-            
+             
             }
         }
     }
