@@ -5,9 +5,9 @@ using Microsoft.Data.SqlClient;
 
 namespace BlazorDB.Pages
 {
-    public class viewDataModel : PageModel
+    public class MainPageModel : PageModel
     {
-        public List<DataDB> Employees = new List<DataDB>();
+        public List<DataDB> mo = new List<DataDB>();
         public void OnGet()
         {
             try
@@ -25,25 +25,24 @@ namespace BlazorDB.Pages
                             while (reader.Read())
                             {
                                 DataDB employeesInfo = new DataDB();
-               
+
 
                                 employeesInfo.Id = reader.GetInt32(0);
                                 employeesInfo.Name = reader.GetString(1);
                                 employeesInfo.Email = reader.GetString(2);
                                 employeesInfo.PhoneNum = reader.GetString(3);
                                 employeesInfo.Birthday = reader.GetDateTime(4);
-                                
-                               
-                                Employees.Add(employeesInfo);
+
+                                mo.Add(employeesInfo);
                             }
                         }
                     }
 
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
-             
+
             }
         }
     }

@@ -1,0 +1,24 @@
+﻿@page
+@model BlazorDB.Pages.MainPageModel
+
+
+<h2>List of employees Birthday</h2>
+
+<table class="table">
+    <tbody>
+        @foreach (var Employees in Model.mo)
+        {
+            <tr>
+                <th>@Employees.Id</th>
+                <td>@Employees.Name</td>
+                <td>@Employees.Birthday</td>
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+
+@{
+
+}

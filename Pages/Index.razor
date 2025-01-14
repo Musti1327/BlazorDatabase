@@ -4,13 +4,13 @@
 <PageTitle>Data</PageTitle>
 
 <h3>Reigster your data</h3>
-  
+
 <EditForm Model="@newData" OnValidSubmit="SubmitForm">
 
     <label>Name</label>
-    <InputText @bind-Value="newData.Name"/>
+    <InputText @bind-Value="newData.Name" />
 
-    
+
     <br />
     <br />
 
@@ -21,22 +21,24 @@
     <br />
 
 
-    
+
 
     <label>Email</label>
-    <InputText @bind-Value="newData.Email"/>
+    <InputText @bind-Value="newData.Email" />
 
     <br />
     <br />
 
     <label>Birthday</label>
     <InputDate @bind-Value="newData.Birthday" />
-    
-    
-     
-    <button type="submit">Submit</button>
 
+
+
+    <button type="submit">Submit</button>
 </EditForm>
+
+
+
 
 @inject Data.AppBbContext dbContext
 @code {
@@ -47,8 +49,9 @@
         dbContext.DataDB.Add(newData);
         await dbContext.SaveChangesAsync();
         
-
     }
 
 }
+
+
 
