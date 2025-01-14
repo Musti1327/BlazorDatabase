@@ -45,5 +45,12 @@ namespace BlazorDB.Pages
 
             }
         }
+        public void ListCheck()
+        {
+            foreach (var Employees in mo)
+            {
+                
+            }
+        }
     }
 }

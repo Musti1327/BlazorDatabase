@@ -6,14 +6,32 @@
 
 <table class="table">
     <tbody>
-        @foreach (var Employees in Model.mo)
+        @{
+            // Get today's date
+            var today = DateTime.Today;
+
+            // Calculate the next occurrence of each employee's birthday and sort
+            var sortedEmployees = Model.mo
+            .Select(emp => new
+            {
+                Employee = emp,
+                NextBirthday = emp.Birthday.AddYears(today.Year - emp.Birthday.Year) < today
+            ? emp.Birthday.AddYears(today.Year - emp.Birthday.Year + 1) // Next year
+            : emp.Birthday.AddYears(today.Year - emp.Birthday.Year) // This year
+            })
+            .OrderBy(emp => emp.NextBirthday) // Sort by the upcoming birthday
+            .ToList();
+        }
+        @foreach (var item in sortedEmployees)
         {
+            var Employees = item.Employee;
+            var nextBirthday = item.NextBirthday;
             <tr>
                 <th>@Employees.Id</th>
                 <td>@Employees.Name</td>
-                <td>@Employees.Birthday</td>
+                <td>@Employees.Birthday.ToShortDateString()</td>
+                <td>@nextBirthday.ToShortDateString()</td> <!-- Display the upcoming birthday -->
             </tr>
-
         }
     </tbody>
 
